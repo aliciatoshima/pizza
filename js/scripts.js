@@ -17,3 +17,33 @@ function Contact(firstName, lastName, phoneNumber) {
 Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
+
+var addressBook1 = new AddressBook();
+
+
+
+$(document).ready(function(){
+
+  $('form#inputform').submit(function(event){
+    event.preventDefault();
+
+
+    var newContact = new Contact();
+    newContact.firstName = $('#fname').val();
+    newContact.lastName = $('#lname').val();
+    newContact.phoneNumber = $('#pnum').val();
+
+    var fname = newContact.fullName();
+
+    console.log(newContact);
+
+    addressBook1.contacts.push(newContact);
+
+    console.log(addressBook1[0]);
+
+    $('#contactlist').append(`<li>Name: ${fname}, Phone Number: ${newContact.phoneNumber}</li>`).hide().fadeIn();
+
+  });
+
+
+});
