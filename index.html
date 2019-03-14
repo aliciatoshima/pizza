@@ -24,7 +24,7 @@
           <label for="pnum">Phone Number</label>
           <input type="text" id="pnum" class="form-control">
         </div> -->
-
+      <div id="new-addresses" class="new-address">
         <div class="form-group" id="input4">
           <label for="street">Street</label>
           <input type="text" id="street" class="form-control">
@@ -37,15 +37,40 @@
           <label for="state">State</label>
           <input type="text" id="state" class="form-control">
         </div>
+      </div>
 
-        <button type="submit" class="btn btn-outline-dark" id="subbutton">Click here to add your contact to the list</button>
+         <span class="btn btn-primary" id="add-address">Add another address</span>
+
+        <button type="submit" class="btn btn-outline-dark" id="subbutton">Add Contact</button>
       </form>
+
+      <div class="container">
+        <div class="row">
+
+      <div class="col-md-6">
       <div id="contactdiv">
         <h3>Here are your current contacts</h3>
         <ul id="contactlist">
-          <!-- <li>Test item</li> -->
         </ul>
+        </div>
+      </div>
+
+          <div class="col-md-6">
+          <div id="show-contact">
+            <h2></h2>
+            <p>First name: <span class="first-name"></span></p>
+            <p>Last name: <span class="last-name"></span></p>
+            <p>Addresses:</p>
+            <ul id="addresses">
+
+            </ul>
+          </div>
+        </div>
+
+
       </div>
     </div>
+  </div>
+
   </body>
 </html>
