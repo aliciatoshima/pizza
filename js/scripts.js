@@ -31,6 +31,10 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
+Address.prototype.fullAddress = function() {
+  return this.street + ", " + this.city + ", " + this.state;
+}
+
 var addressBook1 = new AddressBook();
 
 
@@ -44,7 +48,13 @@ $(document).ready(function(){
     var newContact = new Contact();
     newContact.firstName = $('#fname').val();
     newContact.lastName = $('#lname').val();
-    newContact.phoneNumber = $('#pnum').val();
+    //newContact.phoneNumber = $('#pnum').val();
+
+    var newAddress = new Address();
+    newAddress.street = $('#street').val();
+    newAddress.city = $('#city').val();
+    newAddress.state = $('#state').val();
+
 
     var fname = newContact.fullName();
 
@@ -54,7 +64,8 @@ $(document).ready(function(){
 
     console.log(addressBook1[0]);
 
-    $('#contactlist').append(`<li>Name: ${fname}, Phone Number: ${newContact.phoneNumber}</li>`).hide().fadeIn();
+    // $('#contactlist').append(`<li>Name: ${fname}, Phone Number: ${newContact.phoneNumber}, </li>`).hide().fadeIn();
+    $('#contactlist').append(`<li>Name: ${fname}, Address: ${newAddress.fullAddress()} </li>`).hide().fadeIn();
 
   });
 
