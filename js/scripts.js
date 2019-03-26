@@ -1,82 +1,88 @@
 // Business Logic for PigDice ---------
-// function Player() {
-//   this.total = total;
-//   this.current = currentScore;
-// }
-//
-// Player.prototype.add = function(contact) {
-//   this.contacts.push(contact);
-// }
-//
-//
-// var addressBook1 = new AddressBook();
-//
-//
+function Player() {
+  this.total = total;
+  this.current_total = current_total;
+}
+
+Player.prototype.add = function() {
+  this.total =  this.total + this.current_total;
+}
+
 function randInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; // The maximum is exclusive and the minimum is inclusive
 }
 
-
-
-
+var current_total = 0
+var total = 0
 
 $(document).ready(function(){
-var current_total1 = 0
-var current_total2 = 0
+// var current_total = 0
+//
+//
+// var total = 0
 
-var total1 = 0
-var total2 = 0
+
+var Player1 = new Player(total, current_total);
+var Player2 = new Player(total, current_total);
 
   // when roll is clicked, show the roll of the dice
+  //console.log(Player1.current_total)
+
   $("#p1-roll").click(function() {
-      roll1 = randInt(1,7);
-      $(".p1-roll").text(roll1)
+    //debugger;
+    roll1 = randInt(1,7);
+    $(".p1-roll").text(roll1)
+
+    if (roll1 === 1) {
+      Player1.current_total = 0
+      $(".p1-roll").empty()
+      alert("Other player's turn!")
+    } else {
+      //debugger
+      //console.log(Player1.current_total)
+     Player1.current_total = Player1.current_total + roll1
+    }
+
+    $(".p1-current").text(Player1.current_total)
+    });
 
 
-      if (roll1 === 1) {
-        current_total1 = 0
-        $(".p1-roll").empty()
-        alert("Other player's turn!")
-      } else {
-        current_total1 = current_total1 + roll1
-        // ask player to roll or hold
-      }
-      $(".p1-current").text(current_total1)
-
-      });
-
-
-  $("#p2-roll").click(function() {
+    $("#p2-roll").click(function() {
+      //debugger;
       roll2 = randInt(1,7);
-      $(".p2-roll").text(roll2)
-
+      $(".p2-roll").text(roll1)
 
       if (roll2 === 1) {
-        current_total2 = 0
+        Player2.current_total = 0
         $(".p2-roll").empty()
         alert("Other player's turn!")
       } else {
-        current_total2 = current_total2 + roll2
-        // ask player to roll or hold
+        //debugger
+        //console.log(Player1.current_total)
+       Player2.current_total = Player2.current_total + roll2
       }
-      $(".p2-current").text(current_total2)
 
+      $(".p2-current").text(Player2.current_total)
       });
 
   $("#p1-hold").click(function() {
-    total1 = total1 + current_total1
-    $(".p1-total").text(total1)
+
+    Player1.add()
+
+    $(".p1-total").text(Player1.total)
     //p2-roll").empty()
-    current_total1 = 0
+    Player1.current_total = 0
   });
 
   $("#p2-hold").click(function() {
-    total2 = total2 + current_total2
-    $(".p2-total").text(total2)
+
+    Player2.add()
+
+    $(".p2-total").text(Player2.total)
     //p2-roll").empty()
-    current_total2 = 0
+    Player2.current_total = 0
   });
 
   // when hold is clicked, return the sum of the rolls for the turn
