@@ -1,11 +1,12 @@
 // Business Logic for PigDice ---------
-function Player() {
-  this.total = total;
-  this.current_total = current_total;
+function Pizza() {
+  this.size = size;
+  this.toppings = toppings;
+  this.price = price;
 }
 
-Player.prototype.add = function() {
-  this.total =  this.total + this.current_total;
+Player.prototype.total = function() {
+  this.price =  this.size + this.toppings;
 }
 
 function randInt(min, max) {
