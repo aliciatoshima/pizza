@@ -50,31 +50,36 @@
             </label>
           </div><br>
 
+
           <div class="form-group">
             <p>Pizza Toppings:</p>
-            <input type="checkbox" name="work-transportation" value="bike"> Pepperoni<br>
-            <input type="checkbox" name="work-transportation" value="car"> Sausage<br>
-            <input type="checkbox" name="work-transportation" value="carpool"> Canadian Bacon<br>
-            <input type="checkbox" name="work-transportation" value="walk"> Bacon<br>
-            <input type="checkbox" name="work-transportation" value="bus"> Onions<br>
-            <input type="checkbox" name="work-transportation" value="train"> Mushrooms<br>
-            <input type="checkbox" name="work-transportation" value="streetcar"> Green Peppers<br>
-            <input type="checkbox" name="work-transportation" value="streetcar"> Pineapples<br>
-            <input type="checkbox" name="work-transportation" value="streetcar"> Feta Cheese<br>
-            <input type="checkbox" name="work-transportation" value="streetcar"> More Cheese<br>
+
+            <div class="row">
+            <div class="col-md-4">
+              <input type="checkbox" name="work-transportation" value="bike"> Pepperoni<br>
+              <input type="checkbox" name="work-transportation" value="car"> Sausage<br>
+              <input type="checkbox" name="work-transportation" value="carpool"> Canadian Bacon<br>
+              <input type="checkbox" name="work-transportation" value="walk"> Bacon<br>
+              <input type="checkbox" name="work-transportation" value="bus"> Onions<br>
+            </div>
+
+            <div class="col-md-4">
+              <input type="checkbox" name="work-transportation" value="train"> Mushrooms<br>
+              <input type="checkbox" name="work-transportation" value="streetcar"> Green Peppers<br>
+              <input type="checkbox" name="work-transportation" value="streetcar"> Pineapples<br>
+              <input type="checkbox" name="work-transportation" value="streetcar"> Feta Cheese<br>
+              <input type="checkbox" name="work-transportation" value="streetcar"> More Cheese<br>
+            </div>
+          </div>
+
           </div>
          <button type="submit" class="btn btn-danger">Add to Cart</button>
         </form>
       </div>
 
           <div class="col-md-4">
-          <div id="p2-output">
-            <h2>Player 2</h2>
-            <p>Total Score: <span class="p2-total"></span></p>
-            <p>Round Score: <span class="p2-current"></span></p>
-            <span class="btn btn-primary" id="p2-roll">Roll</span>
-            <span class="btn btn-primary" id="p2-hold">Hold</span>
-            <p>Dice Roll: <span class="p2-roll"></span></p>
+          <div id="order">
+            <h3>Review Your Order Below:</h3>
           </div>
         </div>
 
