@@ -1,13 +1,7 @@
-.winner {
+.order {
   display: none;
-  text-align: center;
-  font-size: 75px;
 }
 
-.img {
-  display: none;
-  text-align: center;
-}
 
 
 .reset {
