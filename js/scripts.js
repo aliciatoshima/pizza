@@ -70,7 +70,7 @@ $(document).ready(function() {
     Orders.Pizza.forEach(function(pizza) {
       //debugger
       cost = cost + pizza.price
-      console.log(cost)
+      //console.log(cost)
       $("ul.pizzas").append("<li>" + pizza.size + ", " +  pizza.toppings.length + " topping pizza" + "</li>");
     });
 
@@ -79,11 +79,11 @@ $(document).ready(function() {
     //debugger
     $(".total").text(cost);
 
-    $("ul.pizzas").click(function() {
-      //debugger
-     $(".pizza-size").text(Pizza1.size)
-     $(".pizza-toppings").text(Pizza1.toppings)
-     $(".pizza-price").text(Pizza1.price)
+    $("ul.pizzas").children("li").click(function(i) {
+      debugger
+     $(".pizza-size").text(Orders.Pizza[i].size)
+     $(".pizza-toppings").text(Orders.Pizza[i].toppings)
+     $(".pizza-price").text(Orders.Pizza[i].price)
 
      $(".order").show()
    });
