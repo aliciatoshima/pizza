@@ -23,7 +23,8 @@ This project uses an HTML form and asks users to order a pizza (or two); the out
 
 ## Known Bugs
 
-*
+* I cannot get the published gh-pages to work properly. It won't take the form answers.
+* I also am having trouble displaying the individual pizzas that were ordered.
 
 ## Support and contact details
 
