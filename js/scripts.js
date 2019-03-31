@@ -2,6 +2,8 @@
 
 function Order() {
   this.Pizza = []
+  this.quantity = cost
+  this.cost = cost
 }
 
 function Pizza() {
@@ -16,11 +18,14 @@ Pizza.prototype.total = function() {
   this.price =  this.sizePrice + this.toppingsPrice;
 }
 
-var sizePrice = 0
-var toppingsPrice = 0
-var price = 0
-var size
-var toppings = []
+var sizePrice = 0;
+var toppingsPrice = 0;
+var price = 0;
+var size;
+var toppings = [];
+var cost = 0;
+var quantity = 0
+
 
 $(document).ready(function() {
   var Orders = new Order()
@@ -28,17 +33,17 @@ $(document).ready(function() {
   $("form#pizza-order").submit(function(event) {
     event.preventDefault();
 
+    $("ul.pizzas").empty();
+    cost = 0
     size = $("input:radio[name=size]:checked").val()
+
+    var Pizza1 = new Pizza(size, sizePrice, toppings, toppingsPrice, price);
 
 
     $("input:checkbox[name=pizza-toppping]:checked").each(function(){
       var top = $(this).val()
       toppings.push(top);
     });
-
-
-    var Pizza1 = new Pizza(size, sizePrice, toppings, toppingsPrice, price);
-
     Pizza1.toppings = toppings;
 
     if (size === "small") {
@@ -48,7 +53,7 @@ $(document).ready(function() {
     } else if (size === "large") {
       Pizza1.sizePrice = 25
     } else {
-      Pizza.sizePrice = 30
+      Pizza1.sizePrice = 30
     }
 
     if (toppings.length <= 2) {
@@ -59,12 +64,32 @@ $(document).ready(function() {
 
     Pizza1.total();
 
-    $(".pizza-size").text(Pizza1.size)
-    $(".pizza-toppings").text(Pizza1.toppings)
-    $(".pizza-price").text(Pizza1.price)
+    Orders.Pizza.push(Pizza1);
+    //console.log(Orders.Pizza) //this is showing the correct things!!!
 
-    $(".order").show()
+    Orders.Pizza.forEach(function(pizza) {
+      //debugger
+      cost = cost + pizza.price
+      console.log(cost)
+      $("ul.pizzas").append("<li>" + pizza.size + ", " +  pizza.toppings.length + " topping pizza" + "</li>");
+    });
 
+    quantity = Orders.Pizza.length
+    $(".pizza-quantity").text(quantity);
+    //debugger
+    $(".total").text(cost);
+
+    $("ul.pizzas").click(function() {
+      //debugger
+     $(".pizza-size").text(Pizza1.size)
+     $(".pizza-toppings").text(Pizza1.toppings)
+     $(".pizza-price").text(Pizza1.price)
+
+     $(".order").show()
+   });
+
+    document.getElementById("pizza-order").reset();
+    toppings = []
   });
 
 });
