@@ -13,10 +13,8 @@
     <div class="container">
 
     <div class="jumbotron">
-      <h1>Pig Dice</h1>
-      <h3>Roll the dice!</h3>
-      <hr class="my-4">
-      <p class="lead">Keep rolling or pass your turn by "holding" and collect your points! If you roll a "1", your turn is over and you don't gain any points! First player to get to 100 or more points, WINS!</p>
+      <h1>Welcome to Not Domino's</h1>
+      <h3>Build your own pizza!</h3>
     </div>
 
 
@@ -24,19 +22,52 @@
       <div class="container">
         <div class="row">
 
-      <div class="col-md-6">
-      <div id="p1-output">
-        <h2>Player 1</h2>
-        <p>Total Score: <span class="p1-total"></span></p>
-        <p>Round Score: <span class="p1-current"></span></p>
-        <span class="btn btn-primary" id="p1-roll">Roll</span>
-        <span class="btn btn-primary" id="p1-hold">Hold</span>
-        <p>Dice Roll: <span class="p1-roll"></span></p>
+      <div class="col-md-8">
+        <form id="pizza-order">
+          <p>Pizza Size:</p>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="small" checked>
+              Small
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="medium">
+              Medium
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="large">
+              Large
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="xlarge">
+              Extra Large
+            </label>
+          </div><br>
 
-        </div>
+          <div class="form-group">
+            <p>Pizza Toppings:</p>
+            <input type="checkbox" name="work-transportation" value="bike"> Pepperoni<br>
+            <input type="checkbox" name="work-transportation" value="car"> Sausage<br>
+            <input type="checkbox" name="work-transportation" value="carpool"> Canadian Bacon<br>
+            <input type="checkbox" name="work-transportation" value="walk"> Bacon<br>
+            <input type="checkbox" name="work-transportation" value="bus"> Onions<br>
+            <input type="checkbox" name="work-transportation" value="train"> Mushrooms<br>
+            <input type="checkbox" name="work-transportation" value="streetcar"> Green Peppers<br>
+            <input type="checkbox" name="work-transportation" value="streetcar"> Pineapples<br>
+            <input type="checkbox" name="work-transportation" value="streetcar"> Feta Cheese<br>
+            <input type="checkbox" name="work-transportation" value="streetcar"> More Cheese<br>
+          </div>
+         <button type="submit" class="btn btn-danger">Add to Cart</button>
+        </form>
       </div>
 
-          <div class="col-md-6">
+          <div class="col-md-4">
           <div id="p2-output">
             <h2>Player 2</h2>
             <p>Total Score: <span class="p2-total"></span></p>
