@@ -1,33 +1,42 @@
 // Business Logic for PigDice ---------
 function Pizza() {
   this.size = size;
+  this.sizePrice = sizePrice;
   this.toppings = toppings;
+  this.toppingsPrice = toppingsPrice;
   this.price = price;
 }
 
 Player.prototype.total = function() {
-  this.price =  this.size + this.toppings;
+  this.price =  this.sizePrice + this.toppingsPrice;
 }
 
-function randInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; // The maximum is exclusive and the minimum is inclusive
-}
 
-var current_total = 0
-var total = 0
+var sizePrice = 0.0
+var toppingsPrice = 0.0
 
-$(document).ready(function(){
+$(document).ready(function() {
+  $("form#leap-year").submit(function(event) {
+    event.preventDefault();
 
-var Player1 = new Player(total, current_total);
-var Player2 = new Player(total, current_total);
-var img = new Image();
+    var size = $("input:radio[name=size]:checked").val()
+    var toppings =
 
-  // when roll is clicked, show the roll of the dice
-  //console.log(Player1.current_total)
+    var Pizza1 = new Pizza(size, sizePrice, toppings, toppingsPrice);
 
-  $("#p1-roll").click(function() {
+    if (size === "small") {
+      Pizza1.sizePrice = 15
+    } else if (size === "medium") {
+      Pizza1.sizePrice = 20
+    } else if (size === "large") {
+      Pizza1.sizePrice = 25
+    } else {
+      Pizza.sizePrice = 30
+    }
+
+
+    //var Pizza1 = new Pizza(size, sizePrice, toppings, toppingsPrice);
+
 
     //debugger;
     roll1 = randInt(1,7);
