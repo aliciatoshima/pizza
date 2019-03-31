@@ -79,14 +79,15 @@ $(document).ready(function() {
     //debugger
     $(".total").text(cost);
 
-    $("ul.pizzas").children("li").click(function(i) {
-      debugger
-     $(".pizza-size").text(Orders.Pizza[i].size)
-     $(".pizza-toppings").text(Orders.Pizza[i].toppings)
-     $(".pizza-price").text(Orders.Pizza[i].price)
+    $("ul.pizzas").children("li").click(function() {
+      ///Order.Pizza[i] is obviously the way to go.... I just don't know how......s
+     $(".pizza-size").text(Pizza1.size)
+     $(".pizza-toppings").text(Pizza1.toppings)
+     $(".pizza-price").text(Pizza1.price)
 
      $(".order").show()
    });
+
 
     document.getElementById("pizza-order").reset();
     toppings = []
