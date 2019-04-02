@@ -67,26 +67,38 @@ $(document).ready(function() {
     Orders.Pizza.push(Pizza1);
     //console.log(Orders.Pizza) //this is showing the correct things!!!
 
-    Orders.Pizza.forEach(function(pizza) {
+    // Orders.Pizza.forEach(function(pizza) {
+    //   //debugger
+    //   cost = cost + pizza.price
+    //   //console.log(cost)
+    //   $("ul.pizzas").append("<li" + "id=" + Orders.Pizza[pizza] + ">" + pizza.size + ", " +  pizza.toppings.length + " topping pizza" + "</li>");
+    // });
+
+    for (i = 0; i < Orders.Pizza.length; i++ ) {
       //debugger
-      cost = cost + pizza.price
+      cost = cost + Orders.Pizza[i].price
       //console.log(cost)
-      $("ul.pizzas").append("<li>" + pizza.size + ", " +  pizza.toppings.length + " topping pizza" + "</li>");
-    });
+      $("ul.pizzas").append("<li data-id=" + i + ">" + Orders.Pizza[i].size + ", " +  Orders.Pizza[i].toppings.length + " topping pizza" + "</li>");
+    };
 
     quantity = Orders.Pizza.length
     $(".pizza-quantity").text(quantity);
     //debugger
     $(".total").text(cost);
 
+
     $("ul.pizzas").children("li").click(function() {
+    var id = parseInt($(this).data("id"))
+     // console.log(parseInt($(this).data("id")))
       ///Order.Pizza[i] is obviously the way to go.... I just don't know how......s
-     $(".pizza-size").text(Pizza1.size)
-     $(".pizza-toppings").text(Pizza1.toppings)
-     $(".pizza-price").text(Pizza1.price)
+     $(".pizza-size").text(Orders.Pizza[id].size)
+     $(".pizza-toppings").text(Orders.Pizza[id].toppings)
+     $(".pizza-price").text(Orders.Pizza[id].price)
 
      $(".order").show()
    });
+
+
 
 
     document.getElementById("pizza-order").reset();
